@@ -14,9 +14,9 @@
   <div th:each="student : ${students}">
     <div class="card mt-3">
       <div class="card-body">
-        <h5 class="card-title" th:text="${student.name}"></h5>
-        <p class="card-text" th:text="'Enrolled in: ' + ${student.course}"></p>
-        <p class="card-text" th:text="'Enrollment Date: ' + ${#dates.format(student.enrollmentDate, 'dd-MM-yyyy')}"></p>
+        <h5 class="card-title" th:text="${student.getName()}"></h5>
+        <p class="card-text" th:text="'Enrolled in: ' + ${student.getCourses()}"></p>
+        <p class="card-text" th:text="'Enrollment Date: ' + ${#dates.format(student.getEnrollmentDate(), 'dd-MM-yyyy')}"></p>
       </div>
     </div>
   </div>
