@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -13,6 +14,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "students")
+// 4. Using Named Query
+//@NamedQuery(name="Student.findByAttributeName",
+//            query = "SELECT st FROM Student st WHERE st.name = :name" )
 public class Student {
 
   @Id

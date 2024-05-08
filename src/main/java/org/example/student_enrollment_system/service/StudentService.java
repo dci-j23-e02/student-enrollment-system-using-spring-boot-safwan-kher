@@ -1,5 +1,6 @@
 package org.example.student_enrollment_system.service;
 
+import java.util.Date;
 import java.util.List;
 import org.example.student_enrollment_system.model.Student;
 import org.example.student_enrollment_system.repository.StudentRepository;
@@ -33,5 +34,19 @@ public class StudentService {
 
   public List<Student> getAllStudents(){
     return repository.findAll();
+  }
+
+
+  // New service methods
+  public List<Student> getStudentsByCourse(String course){
+    return repository.findByCourse(course);
+  }
+
+  public  List<Student> getStudentsEnrolledAfter(Date date){
+    return  repository.findStudentsEnrolledAfter(date);
+  }
+
+  public List<Student> getStudentsByNameContaining(String name){
+    return repository.findByNameContaining(name);
   }
 }
