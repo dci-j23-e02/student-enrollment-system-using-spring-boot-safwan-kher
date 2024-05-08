@@ -6,6 +6,11 @@ import org.example.student_enrollment_system.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+/**
+ * explain the class
+ * */
 @Service
 public class StudentService {
 
@@ -23,7 +28,7 @@ public class StudentService {
    *
    * */
   public Student saveStudent(Student student) {
-    return repository.save(student);
+    return repository.save(student); // saving student object
   }
 
   public List<Student> getAllStudents(){
