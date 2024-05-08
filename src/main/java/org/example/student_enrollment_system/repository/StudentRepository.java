@@ -28,7 +28,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 // List<Student> findByAttributeName(@Param("name") String name);
 
   // Find Students by Course
-  List<Student> findByCourse(String course);
+  List<Student> findByCourses(String course);
+  
 
   // Find Students enrolled after a certain date : using JPQL
   @Query("SELECT s FROM Student s WHERE s.enrollmentDate > :certainDate ")

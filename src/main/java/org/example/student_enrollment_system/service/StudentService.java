@@ -39,7 +39,7 @@ public class StudentService {
 
   // New service methods
   public List<Student> getStudentsByCourse(String course){
-    return repository.findByCourse(course);
+    return repository.findByCourses(course);
   }
 
   public  List<Student> getStudentsEnrolledAfter(Date date){

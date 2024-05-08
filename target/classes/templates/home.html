@@ -11,6 +11,30 @@
   <div>
     <a href="/enroll" class="btn btn-primary">Enroll New Student</a>
   </div>
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4">
+        <form action="/students/course" method="get" class="d-flex">
+          <input type="text" name="course" class="form-control me-2" placeholder="Search by course">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <form action="/students/enrolledAfter" method="get" class="d-flex">
+          <input type="date" name="date" class="form-control me-2">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <form action="/students/name" method="get" class="d-flex">
+          <input type="text" name="name" class="form-control me-2" placeholder="Search by name">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div th:each="student : ${students}">
     <div class="card mt-3">
       <div class="card-body">
