@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
-      // Standard CRUD methods are automatically provided
+      // Standard CRUD methods are automatically provided by extending JpaRepository
 
   // Custom Operations can be added
       // find the student by name
@@ -37,5 +37,20 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
   // Find students by name containing a string
   List<Student> findByNameContaining( String name);
+
+  // Add a method to find students by a combination of name and course.
+  // Using JPQL:
+  @Query("SELECT s FROM Student s WHERE s.name =:name AND s.courses = :course")
+  List<Student> findByNameAndCourse(@Param("name") String name,@Param("course") String course);
+
+  // Implement a query to find students who have enrolled within a specific date range.
+  // Using JPQL:
+  @Query("SELECT s FROM Student s WHERE s.enrollmentDate BETWEEN :start AND :end")
+  List<Student> findByEnrollmentDateBetween(@Param("start") Date start, @Param("end") Date end);
+
+  // Create a method to retrieve all students sorted by their enrollment date in descending order.
+  // Using JPQL:
+  @Query("SELECT s FROM Student s ORDER BY s.enrollmentDate DESC")
+  List<Student> findAllByOrderByEnrollmentDateDesc();
 
 }

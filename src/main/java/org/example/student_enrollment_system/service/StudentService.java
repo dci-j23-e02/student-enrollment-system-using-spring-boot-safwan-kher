@@ -49,4 +49,19 @@ public class StudentService {
   public List<Student> getStudentsByNameContaining(String name){
     return repository.findByNameContaining(name);
   }
+
+  // new features
+  public  List<Student> getStudentsByNameAndCourse(String name, String course){
+    return repository.findByNameAndCourse(name, course);
+  }
+
+  public  List<Student> getStudentsByEnrollmentDateRange(Date start, Date end){
+    return repository.findByEnrollmentDateBetween(start,  end);
+  }
+
+
+  public  List<Student> getAllStudentsSortedByEnrollmentDateDescending(){
+    return  repository.findAllByOrderByEnrollmentDateDesc();
+  }
+
 }

@@ -73,4 +73,36 @@ public class StudentController {
     model.addAttribute("students", students);
     return "home";
   }
+
+  @GetMapping("/students/search")
+  public String searchStudents(
+      @RequestParam("name") String name,
+      @RequestParam("course") String course,
+      Model model
+  ){
+    List<Student> students = service.getStudentsByNameAndCourse(name, course);
+    model.addAttribute("students", students);
+    return "home";
+  }
+
+
+  @GetMapping("/students/search/date_range")
+  public String searchStudentsByDateRange(
+      @RequestParam("start") Date start,
+      @RequestParam("end") Date end,
+
+      Model model
+  ){
+    List<Student> students = service.getStudentsByEnrollmentDateRange(start, end);
+    model.addAttribute("students", students);
+    return "home";
+  }
+
+  @GetMapping("/students/search/sorted")
+  public String searchStudentsSortedDescriptions( Model model){
+    List<Student> students = service.getAllStudentsSortedByEnrollmentDateDescending();
+    model.addAttribute("students", students);
+    return "home";
+  }
+
 }
