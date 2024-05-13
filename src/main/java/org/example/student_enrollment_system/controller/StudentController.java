@@ -88,8 +88,8 @@ public class StudentController {
 
   @GetMapping("/students/search/date_range")
   public String searchStudentsByDateRange(
-      @RequestParam("start") Date start,
-      @RequestParam("end") Date end,
+      @RequestParam("start") @DateTimeFormat(pattern = "yyyy-MM-dd") Date start,
+      @RequestParam("end") @DateTimeFormat(pattern = "yyyy-MM-dd") Date end,
 
       Model model
   ){
